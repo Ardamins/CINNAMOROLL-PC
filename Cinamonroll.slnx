@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/Elementos de la solución/">
+    <File Path="../../../Downloads/cinnamoroll.png" />
+    <File Path="../../../Downloads/cinnamoroll_durmiendo.png" />
+    <File Path="../../../Downloads/cinnamoroll_feliz.png" />
+    <File Path="../../../Downloads/cinnamoroll_parado.png" />
+    <File Path="../../../Downloads/cinnamoroll_sentado.png" />
+  </Folder>
+  <Project Path="Cinamonroll/Cinamonroll.csproj" />
+</Solution>

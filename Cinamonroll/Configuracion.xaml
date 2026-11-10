@@ -1,0 +1,74 @@
+﻿<Window x:Class="Cinnamoroll.Configuracion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Configuración de Cinnamoroll" Height="500" Width="400"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        ResizeMode="NoResize">
+
+    <!-- Borde exterior con sombra y bordes redondeados -->
+    <Border Background="#FFF0F8" CornerRadius="20" BorderBrush="#FFB0D4" BorderThickness="2">
+        <Border.Effect>
+            <DropShadowEffect Color="#FFB0D4" BlurRadius="15" ShadowDepth="0" Opacity="0.5"/>
+        </Border.Effect>
+
+        <Grid Margin="25">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Encabezado con botón de cerrar -->
+            <Grid Grid.Row="0" Margin="0,0,0,20">
+                <TextBlock Text="☁️ Ajustes de Cinnamoroll" FontSize="20" FontWeight="Bold" Foreground="#FF6B9E" VerticalAlignment="Center"/>
+                <Button Content="✖" HorizontalAlignment="Right" VerticalAlignment="Top" Width="30" Height="30" 
+                        Background="Transparent" BorderThickness="0" Foreground="#FF6B9E" FontWeight="Bold" 
+                        Cursor="Hand" Click="BtnCerrar_Click"/>
+            </Grid>
+
+            <!-- Formulario -->
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <!-- Proveedor -->
+                    <TextBlock Text="Proveedor de IA:" Foreground="#FF6B9E" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <ComboBox x:Name="ComboProveedor" Margin="0,0,0,15" Height="35" SelectedIndex="0" VerticalContentAlignment="Center">
+                        <ComboBoxItem Content="Ollama (Local)"/>
+                        <ComboBoxItem Content="OpenAI (API)"/>
+                        <ComboBoxItem Content="Groq (API)"/>
+                    </ComboBox>
+
+                    <!-- URL -->
+                    <TextBlock Text="URL de la API:" Foreground="#FF6B9E" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <Border CornerRadius="10" BorderBrush="#FFB0D4" BorderThickness="1" Background="White" Margin="0,0,0,15">
+                        <TextBox x:Name="TxtUrl" Text="http://localhost:11434/api/generate" BorderThickness="0" Background="Transparent" Padding="10,8" VerticalContentAlignment="Center"/>
+                    </Border>
+
+                    <!-- API Key -->
+                    <TextBlock Text="API Key (si usas API):" Foreground="#FF6B9E" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <Border CornerRadius="10" BorderBrush="#FFB0D4" BorderThickness="1" Background="White" Margin="0,0,0,15">
+                        <PasswordBox x:Name="TxtApiKey" BorderThickness="0" Background="Transparent" Padding="10,8" VerticalContentAlignment="Center"/>
+                    </Border>
+
+                    <!-- Modelo -->
+                    <TextBlock Text="Nombre del Modelo:" Foreground="#FF6B9E" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <Border CornerRadius="10" BorderBrush="#FFB0D4" BorderThickness="1" Background="White" Margin="0,0,0,20">
+                        <TextBox x:Name="TxtModelo" Text="llama3" BorderThickness="0" Background="Transparent" Padding="10,8" VerticalContentAlignment="Center"/>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
+
+            <!-- Botón Guardar -->
+            <Button Grid.Row="2" Content="Guardar Ajustes ♡" Click="BtnGuardar_Click" Height="45" FontSize="16" FontWeight="Bold"
+                    Background="#FF6B9E" Foreground="White" BorderThickness="0" Cursor="Hand" Margin="0,10,0,0">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="15"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Grid>
+    </Border>
+</Window>

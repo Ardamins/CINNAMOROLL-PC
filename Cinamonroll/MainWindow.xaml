@@ -1,0 +1,72 @@
+﻿<Window x:Class="Cinnamoroll.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Cinnamoroll" Height="550" Width="500"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Topmost="True"
+        ShowInTaskbar="False">
+
+    <!-- EL FONDO CASI INVISIBLE PARA QUE FUNCIONEN LOS CLICS -->
+    <Grid x:Name="MainGrid" Background="#01000000">
+
+        <!-- Cinnamoroll -->
+        <Border Background="Transparent">
+            <Image x:Name="CinnamorollImage" Stretch="Uniform" 
+                   VerticalAlignment="Top" Margin="0,20,0,0" />
+        </Border>
+
+        <!-- Globo de diálogo con bordes redondeados y sombra -->
+        <Border x:Name="SpeechBubble" Background="White" CornerRadius="15" Padding="15" 
+                HorizontalAlignment="Center" VerticalAlignment="Top" Visibility="Collapsed"
+                Margin="0,10,0,0" MaxWidth="400" IsHitTestVisible="False">
+            <Border.Effect>
+                <DropShadowEffect Color="#FFB0D4" BlurRadius="10" ShadowDepth="0" Opacity="0.5"/>
+            </Border.Effect>
+            <Border.BorderBrush>
+                <SolidColorBrush Color="#FFB0D4" />
+            </Border.BorderBrush>
+            <Border.BorderThickness>
+                <Thickness>2</Thickness>
+            </Border.BorderThickness>
+            <TextBlock x:Name="SpeechText" Text="¡Hola!" Foreground="#FF6B9E" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center" FontSize="16"/>
+        </Border>
+
+        <!-- BARRA DE CHAT ESTILIZADA -->
+        <!-- Le pusimos un fondo blanco semi-transparente y bordes redondeados -->
+        <Border VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,30" 
+                Background="#E6FFFFFF" CornerRadius="20" Padding="10" 
+                BorderBrush="#FFB0D4" BorderThickness="2">
+            <Border.Effect>
+                <DropShadowEffect Color="#FFB0D4" BlurRadius="15" ShadowDepth="0" Opacity="0.4"/>
+            </Border.Effect>
+
+            <StackPanel Orientation="Horizontal">
+                <!-- Caja de texto sin bordes (para que se vea integrada) -->
+                <TextBox x:Name="InputBox" Width="280" Height="35" Margin="5,0,10,0" VerticalContentAlignment="Center" 
+                         KeyDown="InputBox_KeyDown" FontSize="15" BorderThickness="0" Background="Transparent" Foreground="#FF6B9E"/>
+
+                <!-- Botón Enviar -->
+                <Button Content="Enviar ♡" Width="90" Height="35" Click="SendButton_Click" FontSize="15" FontWeight="Bold"
+                        Background="#FF6B9E" Foreground="White" BorderThickness="0" Cursor="Hand">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="15"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <!-- Botón de Configuración -->
+                <Button Content="⚙️" Width="40" Height="35" Click="AbrirConfiguracion_Click" FontSize="16" 
+                        Margin="10,0,0,0" Background="#FFF0F8" BorderBrush="#FFB0D4" BorderThickness="1" Cursor="Hand">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="15"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
